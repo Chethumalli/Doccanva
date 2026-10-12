@@ -1,0 +1,207 @@
+@import "tailwindcss";
+
+:root {
+  --background: #060b18;
+  --foreground: #f8fafc;
+  --card: #0c1427;
+  --card-foreground: #f8fafc;
+  --primary: #38bdf8;
+  --primary-hover: #0ea5e9;
+  --primary-foreground: #ffffff;
+  --secondary: #131f37;
+  --secondary-foreground: #e2e8f0;
+  --muted: #0f1a30;
+  --muted-foreground: #94a3b8;
+  --accent: #1e293b;
+  --accent-foreground: #38bdf8;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #38bdf8;
+  --radius: 1rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Form Input & Textarea Text Contrast Guarantee */
+input, textarea, select {
+  color: #0f172a;
+}
+
+input.bg-white, textarea.bg-white, select.bg-white,
+.bg-white input, .bg-white textarea, .bg-white select {
+  color: #000000 !important;
+}
+
+textarea::selection, input::selection {
+  background-color: #bfdbfe;
+  color: #000000;
+}
+
+/* Document Paper Canvas Styling */
+.doc-page-canvas {
+  width: 100%;
+  max-width: 816px; /* Standard 8.5in letter at 96 DPI */
+  min-height: 1056px; /* 11in letter height */
+  margin: 2rem auto;
+  background: #ffffff;
+  padding: 4rem 3.5rem;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+              0 10px 25px -5px rgba(0, 0, 0, 0.08),
+              0 0 0 1px rgba(0, 0, 0, 0.04);
+  position: relative;
+  transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 768px) {
+  .doc-page-canvas {
+    padding: 1.5rem 1.25rem;
+    margin: 1rem auto;
+  }
+}
+
+/* TipTap Editor ProseMirror Styles */
+.ProseMirror {
+  outline: none;
+  min-height: 800px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #1e293b;
+}
+
+.ProseMirror p {
+  margin-bottom: 0.85rem;
+}
+
+.ProseMirror h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.25;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.025em;
+}
+
+.ProseMirror h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #1e293b;
+  line-height: 1.3;
+  margin-top: 1.4rem;
+  margin-bottom: 0.6rem;
+}
+
+.ProseMirror h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #334155;
+  margin-top: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.ProseMirror ul {
+  list-style-type: disc;
+  padding-left: 1.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.ProseMirror ol {
+  list-style-type: decimal;
+  padding-left: 1.75rem;
+  margin-bottom: 0.85rem;
+}
+
+.ProseMirror li {
+  margin-bottom: 0.25rem;
+}
+
+.ProseMirror blockquote {
+  border-left: 4px solid #6366f1;
+  padding-left: 1rem;
+  color: #475569;
+  font-style: italic;
+  margin: 1.25rem 0;
+  background: #f8fafc;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-radius: 0 4px 4px 0;
+}
+
+.ProseMirror table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 1.25rem 0;
+  overflow: hidden;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+}
+
+.ProseMirror td,
+.ProseMirror th {
+  min-width: 1em;
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ProseMirror th {
+  font-weight: bold;
+  text-align: left;
+  background-color: #f1f5f9;
+}
+
+.ProseMirror .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0; right: 0; top: 0; bottom: 0;
+  background: rgba(99, 102, 241, 0.15);
+  pointer-events: none;
+}
+
+.ProseMirror hr {
+  border: none;
+  border-top: 2px solid #e2e8f0;
+  margin: 1.75rem 0;
+}
+
+.ProseMirror a {
+  color: #4f46e5;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  margin: 1rem 0;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
